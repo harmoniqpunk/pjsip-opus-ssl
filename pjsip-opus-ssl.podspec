@@ -23,19 +23,19 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '8.0'
   s.requires_arc = false
 
-  s.preserve_paths = 'Pjsip.framework/**/**/*{h,hpp}'
+  s.preserve_paths = 'include/**/**/*{h,hpp}'
 
-  s.vendored_frameworks = 'Pjsip.framework'
+  s.vendored_libraries = 'lib/*a'
 
   s.frameworks = 'CFNetwork', 'AudioToolbox', 'AVFoundation'
 
-  s.header_mappings_dir = 'Pjsip.framework/Headers'
+  s.header_mappings_dir = 'include/'
 
   s.module_name = 'Pjsip'
 
   s.xcconfig = {
     'GCC_PREPROCESSOR_DEFINITIONS' => 'PJ_AUTOCONF=1',
-    'HEADER_SEARCH_PATHS'  => '$(inherited) $(PODS_ROOT)/pjsip-opus-ssl/Pjsip.framework/Headers'
+    'HEADER_SEARCH_PATHS'  => '$(inherited) $(PODS_ROOT)/pjsip-opus-ssl/include'
   }
 
 end
